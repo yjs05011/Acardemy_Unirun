@@ -5,12 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = default;
+    public bool isGameOver = false;
+    
     private const string UI_OBJS ="UiObjs";
     private const string SCORE_TEXT ="ScoreText";
     private const string GAME_OVER_UI ="GameOverUI";
-    public bool isGameOver = false;
+    
     private GameObject scoreTxtObj = default;
     private GameObject gameOverUi = default;
+    
 
     private int score = default;
     // Start is called before the first frame update

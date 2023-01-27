@@ -7,10 +7,10 @@ public class ScrollingObjController : MonoBehaviour
     public string prefabName = default;
     public int scrollingObjCount = default;
     public float scrollingSpeed = default;
-    private GameObject objPrefab = default;
+    protected GameObject objPrefab = default;
     protected Vector2 objPrefabSize = default;
     protected List<GameObject> scrollingPool = default;
-    private  float lastScroObjInitXPos = default;
+    protected float prefabYPos = default;
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -19,6 +19,7 @@ public class ScrollingObjController : MonoBehaviour
         GFunc.Assert(objPrefab != null || objPrefab != default);
         
         objPrefabSize = objPrefab.GetRectSizeDelta();
+        prefabYPos = objPrefab.transform.localPosition.y;
 
         // { ��ũ�Ѹ� Ǯ�� �����ؼ� �־��� ����ŭ �ʱ�ȭ
         GameObject tempObj = default;
@@ -65,14 +66,7 @@ public class ScrollingObjController : MonoBehaviour
         RepositionFirstObj(); 
     }
     protected virtual void InitObjsPosition() {
-        /*Do something*/
-        float horizonPos = 
-            objPrefabSize.x * (scrollingObjCount - 1) * (-1) * 0.5f;
-        for (int i=0; i < scrollingObjCount; i++)
-        {
-            scrollingPool[i].SetLocalPos(horizonPos, 0f, 0f);
-            horizonPos = horizonPos + objPrefabSize.x;
-        }  
+        /*Do something*/  
     }
 
     protected virtual void RepositionFirstObj(){

@@ -30,7 +30,7 @@ public class ScrollingBgController : ScrollingObjController
     protected override void RepositionFirstObj()
     {
         base.RepositionFirstObj();
-         float lastScrObjCrrentXPos = scrollingPool[scrollingObjCount - 1].transform.localPosition.x -1f;
+        float lastScrObjCrrentXPos = scrollingPool[scrollingObjCount - 1].transform.localPosition.x -1f;
         if (lastScrObjCrrentXPos <= objPrefabSize.x * 0.5f)
         {
             float lastScroObjInitXPos =Mathf.Floor(scrollingObjCount * 0.5f) * objPrefabSize.x +(objPrefabSize.x * 0.5f);
